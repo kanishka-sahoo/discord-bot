@@ -17,5 +17,5 @@ class Useful(commands.Cog):
     result = eval(args)
     await ctx.send('The result is ' + str(result))
 
-def setup(bot):
-    bot.add_cog(Useful(bot))
+async def setup(bot):
+    await bot.add_cog(Useful(bot))

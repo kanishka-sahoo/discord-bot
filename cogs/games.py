@@ -11,5 +11,5 @@ class Games(commands.Cog):
   async def hangman_game(self, ctx):
     await ctx.send('I dont exist yet')
 
-def setup(bot):
-    bot.add_cog(Games(bot))
+async def setup(bot):
+    await bot.add_cog(Games(bot))

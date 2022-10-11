@@ -40,5 +40,5 @@ class Messaging(commands.Cog):
     await ctx.channel.purge(limit=1)
     await ctx.send(args, delete_after=duration)
 
-def setup(bot):
-    bot.add_cog(Messaging(bot))
+async def setup(bot):
+    await bot.add_cog(Messaging(bot))
