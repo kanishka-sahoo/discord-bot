@@ -13,7 +13,9 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Bot Command Prefix
-bot = commands.Bot(command_prefix='?')
+intents = discord.Intents.all()
+intents.members = True
+bot = commands.Bot(command_prefix='?', intents=intents)
 
 init_extensions = ['cogs.general',
                    'cogs.messaging', 
