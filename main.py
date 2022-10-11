@@ -17,13 +17,14 @@ intents = discord.Intents.all()
 intents.members = True
 bot = commands.Bot(command_prefix='?', intents=intents)
 
+# enclose the extensions in a list for easy addition
 init_extensions = ['cogs.general',
                    'cogs.messaging', 
                    'cogs.admins', 
                    'cogs.games', 
                    'cogs.useful']
 
-async def setup_bot():
+async def setup_bot():  # needed for discord.py 2.0 onwards
     for extension in init_extensions:
         await bot.load_extension(extension)
 
