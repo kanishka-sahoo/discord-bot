@@ -23,9 +23,13 @@ init_extensions = ['cogs.general',
                    'cogs.games', 
                    'cogs.useful']
 
-if __name__ == '__main__':
+async def setup_bot():
     for extension in init_extensions:
-        bot.load_extension(extension)
+        await bot.load_extension(extension)
+
+
+if __name__ == '__main__':
+    asyncio.run(setup_bot())
 
 
 
