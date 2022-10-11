@@ -28,25 +28,14 @@ async def setup_bot():  # needed for discord.py 2.0 onwards
     for extension in init_extensions:
         await bot.load_extension(extension)
 
-
 if __name__ == '__main__':
     asyncio.run(setup_bot())
-
-
 
 #Informs user if incorrect role
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
-
-
-
-
-
-
-
-
 
 # Final line
 bot.run(TOKEN)
