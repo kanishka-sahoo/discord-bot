@@ -9,11 +9,11 @@ import struct
 from discord.ext import commands
 from dotenv import load_dotenv
 import discord
-load_dotenv()
+load_dotenv()   # loads .env variables
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Bot Command Prefix
-intents = discord.Intents.all()
+intents = discord.Intents.all() # required to define intents after discord.py 2.0 
 intents.members = True
 bot = commands.Bot(command_prefix='?', intents=intents)
 
