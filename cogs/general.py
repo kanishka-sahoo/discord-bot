@@ -15,9 +15,7 @@ class General(commands.Cog):
   # Query of the bot uptime
   @commands.command(name='uptime', help='Returns the length of time bot is active')
   async def uptime(self, ctx, ):
-    libc = ctypes.CDLL('libc.so.6')
-    buf = ctypes.create_string_buffer(4096) # generous buffer to hold
-                                            # struct sysinfo
+    
     with open('/proc/uptime', 'r') as f:
         uptime_seconds = float(f.readline().split()[0])
     
