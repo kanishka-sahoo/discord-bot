@@ -21,7 +21,8 @@ bot = commands.Bot(command_prefix='?', intents=intents)
 init_extensions = ['cogs.general',
                    'cogs.messaging', 
                    'cogs.admins', 
-                   'cogs.games', 
+                   'cogs.games',
+                   'cogs.embeds', 
                    'cogs.useful']
 
 async def setup_bot():  # needed for discord.py 2.0 onwards

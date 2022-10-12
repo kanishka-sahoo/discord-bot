@@ -18,12 +18,10 @@ class General(commands.Cog):
     libc = ctypes.CDLL('libc.so.6')
     buf = ctypes.create_string_buffer(4096) # generous buffer to hold
                                             # struct sysinfo
-    if libc.sysinfo(buf) != 0:
-        print('failed')
-        return -1
-
-    uptime = struct.unpack_from('@l', buf.raw)[0]
-    await ctx.send("Current uptime: "+uptime)
+    with open('/proc/uptime', 'r') as f:
+        uptime_seconds = float(f.readline().split()[0])
+    
+    await ctx.send(f"Current uptime: {uptime_seconds} seconds")
 
   #Rolls the dice. First arg = no and second arg = sides
   @commands.command(name='roll-dice', help='Simulates rolling upto 5 dice. eg: <roll_dice 2 6> is 2 six sided dice')
