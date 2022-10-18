@@ -15,8 +15,11 @@ class General(commands.Cog):
   # Query of the bot uptime
   @commands.command(name='uptime', help='Returns the length of time bot is active')
   async def uptime(self, ctx, ):
-        
-    await ctx.send(f"Current uptime: {time.time()-self.start_time} seconds")
+    await ctx.send(f"Current uptime: {time.time()-self.start_time:.2f} seconds")
+  @commands.command(name='uptime-reset', help='Returns the length of time bot is active')
+  async def uptime_reset(self, ctx ):
+    self.start_time = time.time()
+    await ctx.send(f"Current uptime: {time.time()-self.start_time:.2f} seconds")
 
   #Rolls the dice. First arg = no and second arg = sides
   @commands.command(name='roll-dice', help='Simulates rolling upto 5 dice. eg: <roll_dice 2 6> is 2 six sided dice')
