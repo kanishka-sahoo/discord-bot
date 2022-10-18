@@ -22,14 +22,14 @@ class Messaging(commands.Cog):
   async def send_dm(self, ctx, member: discord.Member, *, content):
       channel = await member.create_dm()
       await channel.send(content)
-      await ctx.send("Sent the dm...")
+      await ctx.reply("Sent the dm...")
 
   #Reverses the sent text
   @commands.command(name='reverse', help='Reverses the sent text')
   async def reverse_message(self, ctx, *args):
     message_to_reverse = ' '.join(args)
     reversed_message = message_to_reverse[::-1]
-    await ctx.send(reversed_message)
+    await ctx.reply(reversed_message)
 
   #Like sa, but has cointdown
   @commands.command(name='time-say', help='say command, but has timeout. Write as >time-say `duration(secs)` `message`')
